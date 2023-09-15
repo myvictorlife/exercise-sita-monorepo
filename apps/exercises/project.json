@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "exercise-sita-monorepo",
   "sourceRoot": "apps/exercises/src",
-  "tags": [],
+  "tags": ["app:exercises"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

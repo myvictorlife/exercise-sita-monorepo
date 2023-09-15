@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { WelcomeComponent } from '../pages/welcome/welcome.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [WelcomeComponent, RouterModule],
   selector: 'exercise-sita-monorepo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

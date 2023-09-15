@@ -1,0 +1,20 @@
+{
+  "name": "js-concurrency-exercise",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/js-concurrency-exercise/src",
+  "prefix": "lib",
+  "tags": ["scope:js-concurrency-exercise"],
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "libs/js-concurrency-exercise/tsconfig.spec.json",
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ]
+      }
+    }
+  }
+}

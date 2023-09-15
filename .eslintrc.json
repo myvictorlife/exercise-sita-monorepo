@@ -13,8 +13,8 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "app:exercises",
+                "onlyDependOnLibsWithTags": ["scope:js-concurrency-exercise"]
               }
             ]
           }
