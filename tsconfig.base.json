@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sita/js-concurrency-exercise": ["libs/js-concurrency-exercise/src/public-api.ts"],
+      "@sita/js-concurrency-exercise": [
+        "libs/js-concurrency-exercise/src/public-api.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
