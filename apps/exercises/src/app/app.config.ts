@@ -14,6 +14,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { metaReducers, reducers } from '../core/+state/index';
 
+import { provideAnimations } from '@angular/platform-browser/animations';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom([
@@ -26,6 +28,7 @@ export const appConfig: ApplicationConfig = {
       appRoutes,
       withComponentInputBinding(),
       withEnabledBlockingInitialNavigation()
-    )
+    ),
+    provideAnimations()
   ],
 };

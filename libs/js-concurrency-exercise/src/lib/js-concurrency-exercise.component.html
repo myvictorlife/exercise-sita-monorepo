@@ -2,33 +2,42 @@
 
 
 <div class="container">
-    <h1>JS Concurrency Exercise</h1>
-    <br/>
-    <button (click)="loadImages()">Load Images</button>
-    <div *ngFor="let image of images()">
-        <img [src]="image.url" />
-    </div>
+
 
     <mat-card>
         <mat-card-header>
-          <mat-card-title>Actions Buttons</mat-card-title>
-          <mat-card-subtitle>Start</mat-card-subtitle>
+          <mat-card-title>JS Concurrency Exercise</mat-card-title>
+          
         </mat-card-header>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      <br>
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>Actions Buttons</mat-card-title>
-          <mat-card-subtitle>End</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-actions align="end">
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-      
+        <mat-card-content>
+            <div class="question-title">
+                <span class="title">Given an array of URLs and a MAX_CONCURRENCY integer, implement a function that will asynchronously
+                    fetch each URL, not requesting more than MAX_CONCURRENCY URLs at the same time. The URLs should
+                    be fetched as soon as possible. The function should return an array of responses for each URL.
+                    How would you write a test for such a function?</span>
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="loadImages()">
+
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Max Concurrency</mat-label>
+                    <input matInput type="number" placeholder="Placeholder" formControlName="maxConcurrency">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+                  
+                
+                <button class="button-fetch-image" type="submit" mat-raised-button color="primary">
+                    Load Images
+                </button>
+              </form>
+
+              <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+                <mat-grid-tile *ngFor="let image of images()">
+                  <img [src]="image.url" />
+                </mat-grid-tile>
+              </mat-grid-list>
+              
+        </mat-card-content>
+    </mat-card>      
 </div>

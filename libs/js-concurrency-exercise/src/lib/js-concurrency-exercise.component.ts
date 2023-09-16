@@ -1,34 +1,55 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { selectAllImages, fetchImages, resetImagesStore } from '@sita/storage';
-// import {MatCardModule} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @Component({
   selector: 'lib-js-concurrency-exercise',
   standalone: true,
   imports: [
-    CommonModule,
-    // MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    NgFor
   ],
   templateUrl: './js-concurrency-exercise.component.html',
   styleUrls: ['./js-concurrency-exercise.component.scss']
 })
 export class JsConcurrencyExerciseComponent {
 
+  form: FormGroup;
+
   images = this.store.selectSignal(selectAllImages);
 
   MAX_CONCURRENCY = signal(3);
 
-  private urls = ['1', '', '2', '3', '4', '5', '6', '7', '8', '9'];
+  private urls = ['1', '', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      maxConcurrency: ['', [Validators.required, Validators.min(1)]]
+    });
+  }
 
   loadImages() {
-    this.store.dispatch(resetImagesStore());
-    this.store.dispatch(fetchImages({
-      urls: this.urls, maxConcurrency: 3
-    }));
+    if (this.form.valid) {
+      const maxConcurrency = parseInt(this.form.get('maxConcurrency')?.value);
+      this.store.dispatch(resetImagesStore());
+      this.store.dispatch(fetchImages({
+        urls: this.urls, maxConcurrency
+      }));
+    }
   }
 
 }
