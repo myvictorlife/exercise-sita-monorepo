@@ -17,12 +17,19 @@ export class JsConcurrencyEffects {
     fetchUrls$ = createEffect(() =>
         this.actions$.pipe(
             ofType(fromActions.fetchImages), // A ação que inicia a busca
-            mergeMap(({ url, maxConcurrency }) =>
-                from(url).pipe(
+            mergeMap(({ urls, maxConcurrency }) =>
+                from(urls).pipe(
                     mergeMap(url =>
                         this.imageCrudService.fetch(url).pipe(
-                            map(urlResponse => fromActions.fetchImagesSuccess({ urlResponse })),
-                            catchError((error) => of(fromActions.fetchImagesFailed({ error })))
+                            map(urlResponse => {
+                                return fromActions.fetchImagesSuccess({ urlResponse })
+                            }),
+                            catchError((error) => {
+                                if (error.url) {
+                                    return of(fromActions.fetchImagesSuccess({ urlResponse: error.url })); // The API returns a 302 status code, but the response contains the actual URL.
+                                }
+                                return of(fromActions.fetchImagesFailed({ error }))
+                            })
                         ),
                         maxConcurrency
                     )

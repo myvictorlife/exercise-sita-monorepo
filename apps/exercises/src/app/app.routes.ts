@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
-import { JsConcurrencyExerciseComponent } from '../pages/exercises-page/js-concurrency-exercise/js-concurrency-exercise.component';
+import { JsConcurrencyExercisePage } from '../pages/exercises-page/js-concurrency-exercise/js-concurrency-exercise.page';
+
 import { WelcomeComponent } from '../pages/welcome/welcome.component';
 
 export const appRoutes: Route[] = [
@@ -9,6 +10,6 @@ export const appRoutes: Route[] = [
     // },
     {
         path: 'js-concurrency-exercise',
-        component: JsConcurrencyExerciseComponent
+        component: JsConcurrencyExercisePage
     }
 ];

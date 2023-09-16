@@ -17,6 +17,9 @@
     "paths": {
       "@sita/js-concurrency-exercise": [
         "libs/js-concurrency-exercise/src/public-api.ts"
+      ],
+      "@sita/storage": [
+        "libs/storage/src/public-api.ts"
       ]
     }
   },

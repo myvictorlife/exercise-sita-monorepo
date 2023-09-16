@@ -24,8 +24,9 @@ export const initialState: State = adapter.getInitialState({
 export const reducer = createReducer(
   initialState,
   on(fromActions.fetchImages, (state) => ({ ...state, loading: true })),
-  on(fromActions.fetchImagesSuccess, (state) => ({ ...state, loading: false, error: null })),
-  on(fromActions.fetchImagesFailed, (state, { error }) =>  ({ ...state, loading: false, error }))
+  on(fromActions.fetchImagesSuccess, (state, { urlResponse }) => ( adapter.addOne({ url: urlResponse }, { ...state, loading: false, error: null }))),
+  on(fromActions.fetchImagesFailed, (state, { error }) =>  ({ ...state, loading: false, error })),
+  on(fromActions.resetImagesStore, (state) => ( adapter.removeAll({ ...state, loading: false, error: null}))),
 );
 
 export const { selectAll } = adapter.getSelectors();

@@ -2,7 +2,7 @@ import { ActionReducerMap } from '@ngrx/store';
 
 import { MetaReducer } from '@ngrx/store';
 
-import * as fromSettingsSocialSport from './js-concurrency/js-concurrency.reducer';
+import * as fromSettingsSocialSport from '@sita/storage';
 
 export interface State {
   images: fromSettingsSocialSport.State;

@@ -5,11 +5,10 @@ export interface IGenericError {
     statusCode?: number;
     data?: any;
   }
-
   
 export const fetchImages = createAction(
   '[JS-CONCURRENCY] Fetch Image',
-  props<{ url: string, maxConcurrency: number }>()
+  props<{ urls: string[], maxConcurrency: number }>()
 );
 
 export const fetchImagesSuccess = createAction(
@@ -20,4 +19,8 @@ export const fetchImagesSuccess = createAction(
 export const fetchImagesFailed = createAction(
     '[JS-CONCURRENCY] Fetch Image Failed',
     props<{ error: IGenericError }>()
+);
+
+export const resetImagesStore = createAction(
+  '[JS-CONCURRENCY] Reset Store'
 );

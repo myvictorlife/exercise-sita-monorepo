@@ -10,9 +10,9 @@ export class ImageCrudService {
 
     }
 
-    fetch(urlPath: string): Observable<string> {
+    fetch(urlPath: string): Observable<any> {
         console.log('fetching url: ', urlPath);
         const url = 'https://picsum.photos/200';
-        return this.http.get<string>(url);
+        return this.http.get<any>(url);
     }
 }

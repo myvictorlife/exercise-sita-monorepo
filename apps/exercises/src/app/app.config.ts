@@ -7,11 +7,12 @@ import {
 import { appRoutes } from './app.routes';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { CoreModule } from '../core/core.module';
+
+import { CoreModule } from '@sita/storage';
 
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
-import { metaReducers, reducers } from '../core/store/index';
+import { metaReducers, reducers } from '../core/+state/index';
 
 export const appConfig: ApplicationConfig = {
   providers: [
