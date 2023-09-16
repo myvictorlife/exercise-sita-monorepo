@@ -1,0 +1,56 @@
+
+
+
+<div class="container">
+
+
+  <mat-card>
+      <mat-card-header>
+        <mat-card-title>The License Plate Problem</mat-card-title>
+        
+      </mat-card-header>
+      <mat-card-content>
+        <br/>
+          <div class="question-title">
+            <span class="title">
+              <p>
+                Você trabalha para o Detran e tem uma maneira específica e sequencial de gerar novos números de placas de veículos, que é detalhada como segue:
+              </p>
+            
+              <ul>
+                <li>Cada número de placa possui 6 caracteres alfanuméricos.</li>
+                <li>Os números sempre vêm antes das letras.</li>
+                <li>A primeira placa tem o número 000000, seguido por 000001.</li>
+                <li>Quando atingir 999999, o próximo da sequência será 00000A, seguido por 00001A.</li>
+                <li>Ao chegar em 99999A, a sequência avança para 00000B.</li>
+                <li>Depois de seguir o padrão até 99999Z, o próximo será 0000AA.</li>
+                <li>Após alcançar 9999AA, a próxima na série será 0000AB, e assim por diante...</li>
+              </ul>
+            </span>            
+          </div>
+            
+          <br/>
+          <form [formGroup]="form" (ngSubmit)="calculate()">
+
+                
+            <mat-form-field appearance="fill">
+                <mat-label>Index</mat-label>
+                <input matInput type="number" placeholder="Placeholder" formControlName="index">
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+              
+            
+            <button class="button-fetch-image" type="submit" mat-raised-button color="primary">
+                Calculate License Plate
+            </button>
+          </form>
+
+          <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+            <mat-grid-tile *ngFor="let plate of selectAllLicensePlates()">
+              Plate Number: {{ plate.plateNumber }}
+            </mat-grid-tile>
+          </mat-grid-list>
+
+      </mat-card-content>
+  </mat-card>      
+</div>

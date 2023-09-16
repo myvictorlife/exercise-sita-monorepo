@@ -25,6 +25,7 @@
                 "sourceTag": "app:exercises",
                 "onlyDependOnLibsWithTags": [
                   "scope:js-concurrency-exercise",
+                  "libs:the-license-plate-problem",
                   "lib:storage"
                 ]
               },

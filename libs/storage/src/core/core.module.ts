@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ImageCrudService } from './services/image-crud/image-crud.service';
+import { LicensePlateService } from './services/license-plate/license-plate.service';
+
 
 @NgModule({
   declarations: [ ],
@@ -14,7 +16,8 @@ import { ImageCrudService } from './services/image-crud/image-crud.service';
     StoreRouterConnectingModule.forRoot()
   ],
   providers: [
-    ImageCrudService
+    ImageCrudService,
+    LicensePlateService
   ],
   exports: []
 })

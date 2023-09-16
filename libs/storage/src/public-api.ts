@@ -8,3 +8,7 @@ export * from './core/core.module';
 export * from './core/store/js-concurrency/js-concurrency.actions';
 export * from './core/store/js-concurrency/js-concurrency.reducer';
 export * from './core/store/js-concurrency/js-concurrency.selectors';
+
+export * from './core/store/license-plate/license-plate.actions';
+export * from './core/store/license-plate/license-plate.reducer';
+export * from './core/store/license-plate/license-plate.selectors';

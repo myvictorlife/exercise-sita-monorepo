@@ -1,0 +1,35 @@
+{
+  "name": "the-license-plate-problem",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/the-license-plate-problem/src",
+  "prefix": "lib",
+  "tags": ["libs:the-license-plate-problem"],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:ng-packagr",
+      "options": {
+        "project": "libs/the-license-plate-problem/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/the-license-plate-problem/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/the-license-plate-problem/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "tsConfig": "libs/the-license-plate-problem/tsconfig.spec.json",
+        "polyfills": [
+          "zone.js",
+          "zone.js/testing"
+        ]
+      }
+    }
+  }
+}
