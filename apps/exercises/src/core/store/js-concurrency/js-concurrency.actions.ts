@@ -7,17 +7,17 @@ export interface IGenericError {
   }
 
   
-export const fetch = createAction(
+export const fetchImages = createAction(
   '[JS-CONCURRENCY] Fetch Image',
   props<{ url: string, maxConcurrency: number }>()
 );
 
-export const fetchImageSuccess = createAction(
+export const fetchImagesSuccess = createAction(
     '[JS-CONCURRENCY] Fetch Image Success',
     props<{urlResponse: string}>()
 );
 
-export const fetchImageFailed = createAction(
+export const fetchImagesFailed = createAction(
     '[JS-CONCURRENCY] Fetch Image Failed',
     props<{ error: IGenericError }>()
 );

@@ -11,8 +11,8 @@ export class ImageCrudService {
     }
 
     fetch(urlPath: string): Observable<string> {
-        // console.log('fetching url: ', urlPath);
-        const url = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Sita_%28IT-Unternehmen%29_logo.svg/1200px-Sita_%28IT-Unternehmen%29_logo.svg.png';
+        console.log('fetching url: ', urlPath);
+        const url = 'https://picsum.photos/200';
         return this.http.get<string>(url);
     }
 }
