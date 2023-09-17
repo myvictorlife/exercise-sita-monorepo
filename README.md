@@ -12,27 +12,26 @@ Hosting URL: https://sita-exercises.web.app/
 
 ## Libs Paths
 
-    $ @sita/js-concurrency-exercise
-    $ @sita/license-plate-exercise
-    $ @sita/monotonically-increasing-series-exercise
+    @sita/js-concurrency-exercise
+    @sita/license-plate-exercise
+    @sita/monotonically-increasing-series-exercise
 
 ## Tools
 
-    $ @ngrx/store // State Management
-    $ @ngrx/effects // Side effect model for Store
-    $ @ngrx/entity // Entity State adapter for managing record collections.
-    $ @angular/material // Material Design components for Angular
-    $ rxjs // RxJS is a library for reactive programming using Observables
-    $ jest // Unit Tests
-    $ Spectator // Spectator helps you get rid of all the boilerplate grunt work, leaving you with readable, sleek and streamlined unit tests.
+    @ngrx/store // State Management
+    @ngrx/effects // Side effect model for Store
+    @ngrx/entity // Entity State adapter for managing record collections.
+    @angular/material // Material Design components for Angular
+    rxjs // RxJS is a library for reactive programming using Observables
+    jest // Unit Tests
+    Spectator // Spectator helps you get rid of all the boilerplate grunt work, leaving you with readable, sleek and streamlined unit tests.
     
 ## CI/CD
 
-    $ CodeQL // It is used to analyze and identify security vulnerabilities, bugs, and other code issues in software projects.
+    $ codecov.yml // It is used to analyze and identify security vulnerabilities, bugs, and other code issues in software projects.
     $ firebase-hosting-merge.yml // Deploy to Production
     $ firebase-hosting-pull-request.yml // Deploy to Development on Pull Request
     $ build.yml // Install, Build, Lint and Test
-    $ codecov.yml // Running Test Coverage
     
 ## Graph dependencies within workspace
 

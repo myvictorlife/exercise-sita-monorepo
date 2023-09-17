@@ -14,37 +14,45 @@ export class LicensePlateService {
     private readonly MAX_INDEX = 26 * 26 * 26 * 26 * 26 * 26 - 1; 
 
     // This method converts the index to its respective alphabetical part
+    public getLicensePlate(index: number): Observable<string> {
+        if (index < 0 || index > this.MAX_INDEX) {
+            return of('Invalid index');
+        }
+    
+        let alphaIndex = Math.floor(index / 1000000);
+        let numericIndex = index % 1000000;
+    
+        if (index >= 1000000) {
+            alphaIndex += Math.floor((numericIndex) / 100000);
+            numericIndex = numericIndex % 100000;
+        }
+    
+        const alphaPartString = this.getAlphaPartFromIndex(alphaIndex);
+        
+        const numericPart = numericIndex.toString().padStart(6 - alphaPartString.length, '0');
+        
+        const plate = numericPart + alphaPartString;
+        
+        console.log(`Index: ${index} => Plate: ${plate}`)
+        
+        return of(plate);
+    }
+    
     private getAlphaPartFromIndex(index: number): string {
         let alphaPart = '';
         while (index > 0) {
             index--;
-            // Calculate the remainder to find the corresponding letter in the alphabet
-            const remainder = index % 26;
-            // Add the corresponding letter to the alphabetical part of the plate
+            let remainder = index % 26;
             alphaPart = this.ALPHABET.charAt(remainder) + alphaPart;
-            // Divide the index by 26 to process the next alphabetical "digit"
             index = Math.floor(index / 26);
         }
         return alphaPart;
     }
     
+    
+    
+    
+    
 
-    // This method takes an index and generates the license plate according to the defined pattern
-    public getLicensePlate(index: number): Observable<string> {
-        if (index < 0 || index > this.MAX_INDEX) {
-            return of('Invalid index');
-        }
-
-        // Calculate numeric and alpha parts based on the index
-        const numericPart = index % 1000000;
-        const alphaPartIndex = Math.floor(index / 1000000);
-        const alphaPartString = this.getAlphaPartFromIndex(alphaPartIndex);
-
-        // Generate the license plate string by combining numeric and alpha parts
-        const plate = numericPart.toString().padStart(6 - alphaPartString.length, '0') + alphaPartString;
-
-        // Return the license plate as an observable
-        return of(plate);
-    }
 
 }
