@@ -2,7 +2,11 @@
   "name": "@exercise-sita-monorepo/source",
   "version": "1.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "affected:build": "npx nx run-many --all --target=build --configuration=development",
+    "affected:lint": "npx nx run-many --all --target=lint --configuration=development",
+    "affected:test": "npx nx run-many --all --target=test --configuration=development"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~16.2.0",
