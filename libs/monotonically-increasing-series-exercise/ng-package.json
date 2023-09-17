@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/the-monotonically-increasing-series",
+  "dest": "../../dist/monotonically-increasing-series-exercise",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

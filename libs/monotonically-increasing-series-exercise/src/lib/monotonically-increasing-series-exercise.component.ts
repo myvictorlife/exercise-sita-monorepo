@@ -11,9 +11,9 @@ import { Store } from '@ngrx/store';
 import { findClosestIndex, selectIndexList } from '@sita/storage';
 
 @Component({
-  selector: 'lib-the-monotonically-increasing-series',
+  selector: 'lib-monotonically-increasing-series-exercise',
   standalone: true,
-  templateUrl: './the-monotonically-increasing-series.component.html',
+  templateUrl: './monotonically-increasing-series-exercise.component.html',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -26,7 +26,7 @@ import { findClosestIndex, selectIndexList } from '@sita/storage';
   styles: [    
   ]
 })
-export class TheMonotonicallyIncreasingSeriesComponent {
+export class MonotonicallyIncreasingSeriesExerciseComponent {
 
   indexList = this.store.selectSignal(selectIndexList);
 

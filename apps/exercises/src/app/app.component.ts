@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { JsConcurrencyExerciseComponent } from '@sita/js-concurrency-exercise';
 import { TheLicensePlateProblemComponent } from '@sita/license-plate-exercise';
 import { WelcomeComponent } from '../pages/welcome/welcome.component';
-import { TheMonotonicallyIncreasingSeriesComponent } from '@sita/the-monotonically-increasing-series';
+import { MonotonicallyIncreasingSeriesExerciseComponent } from '@sita/monotonically-increasing-series-exercise';
 
 @Component({
   standalone: true,
@@ -12,7 +12,7 @@ import { TheMonotonicallyIncreasingSeriesComponent } from '@sita/the-monotonical
     RouterModule,
     JsConcurrencyExerciseComponent,
     TheLicensePlateProblemComponent,
-    TheMonotonicallyIncreasingSeriesComponent
+    MonotonicallyIncreasingSeriesExerciseComponent
   ],
   selector: 'exercise-sita-monorepo-root',
   templateUrl: './app.component.html',

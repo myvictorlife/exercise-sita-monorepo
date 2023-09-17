@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TheMonotonicallyIncreasingSeriesService } from './the-monotonically-increasing-series.service';
+import { TheMonotonicallyIncreasingSeriesService } from './monotonically-increasing-series-exercise.service';
 
 describe('TheMonotonicallyIncreasingSeriesService', () => {
   let service: TheMonotonicallyIncreasingSeriesService;

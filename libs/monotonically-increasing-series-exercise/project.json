@@ -1,22 +1,22 @@
 {
-  "name": "the-monotonically-increasing-series",
+  "name": "monotonically-increasing-series-exercise",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/the-monotonically-increasing-series/src",
+  "sourceRoot": "libs/monotonically-increasing-series-exercise/src",
   "prefix": "lib",
-  "tags": ["scope:the-monotonically-increasing-series"],
+  "tags": ["scope:monotonically-increasing-series-exercise"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
-        "project": "libs/the-monotonically-increasing-series/ng-package.json"
+        "project": "libs/monotonically-increasing-series-exercise/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/the-monotonically-increasing-series/tsconfig.lib.prod.json"
+          "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/the-monotonically-increasing-series/tsconfig.lib.json"
+          "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -24,7 +24,7 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "tsConfig": "libs/the-monotonically-increasing-series/tsconfig.spec.json",
+        "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.spec.json",
         "polyfills": [
           "zone.js",
           "zone.js/testing"

@@ -21,8 +21,8 @@
       "@sita/license-plate-exercise": [
         "libs/license-plate-exercise/src/public-api.ts"
       ],
-      "@sita/the-monotonically-increasing-series": [
-        "libs/the-monotonically-increasing-series/src/public-api.ts"
+      "@sita/monotonically-increasing-series-exercise": [
+        "libs/monotonically-increasing-series-exercise/src/public-api.ts"
       ],
       "@sita/storage": [
         "libs/storage/src/public-api.ts"
