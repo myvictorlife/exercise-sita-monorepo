@@ -8,7 +8,7 @@
     "affected:build": "npx nx run-many --all --target=build --configuration=development",
     "affected:lint": "npx nx run-many --all --target=lint --configuration=development",
     "affected:test": "npx nx run-many --all --target=test --configuration=development",
-    "ci:test:coverage": "test:coverage:silent",
+    "ci:test:coverage": "npm run test:coverage:silent",
     "test:coverage:silent": "nx run-many --target=test --all --parallel=false --watch=false --ci=true --runInBand=true --coverage"
   },
   "private": true,
