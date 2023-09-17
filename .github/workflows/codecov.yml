@@ -1,0 +1,57 @@
+name: Running Test Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache Nx
+        uses: actions/cache@v2
+        with:
+          path: node_modules/.cache/nx
+          key: ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-
+
+      - name: Use coturiv/setup-ionic
+        uses: coturiv/setup-ionic@v1
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Affected
+        run: npm run affected:build
+
+      - name: Run the tests
+        run: npm run ci:test:coverage
+
+      - name: Upload coverage reports to Codecov (exercises)
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/apps/exercises/coverage-final.json
+          flags: app,${{ matrix.os }}
+          name: codecov-exercises
