@@ -4,9 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
-import { ImageCrudService } from './services/image-crud/image-crud.service';
-
-import { MonotonicallyIncreasingSeriesService } from './services/monotonically-increasing-series/monotonically-increasing-series';
+import { LicensePlateService } from './services/license-plate/license-plate.service';
 
 @NgModule({
   declarations: [ ],
@@ -16,8 +14,7 @@ import { MonotonicallyIncreasingSeriesService } from './services/monotonically-i
     StoreRouterConnectingModule.forRoot()
   ],
   providers: [
-    ImageCrudService,
-    MonotonicallyIncreasingSeriesService
+    LicensePlateService
   ],
   exports: []
 })
