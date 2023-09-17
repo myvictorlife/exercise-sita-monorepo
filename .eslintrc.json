@@ -35,6 +35,12 @@
                 "onlyDependOnLibsWithTags": [
                   "lib:storage"
                 ]
+              },
+              {
+                "sourceTag": "scope:the-monotonically-increasing-series",
+                "onlyDependOnLibsWithTags": [
+                  "lib:storage"
+                ]
               }
             ]
           }

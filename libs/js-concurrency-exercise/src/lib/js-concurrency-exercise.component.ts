@@ -52,4 +52,8 @@ export class JsConcurrencyExerciseComponent {
     }
   }
 
+  resetJsConcurrencyState() {
+    this.store.dispatch(resetImagesStore());
+  }
+
 }

@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { ImageCrudService } from './services/image-crud/image-crud.service';
 import { LicensePlateService } from './services/license-plate/license-plate.service';
-
+import { MonotonicallyIncreasingSeriesService } from './services/monotonically-increasing-series/monotonically-increasing-series';
 
 @NgModule({
   declarations: [ ],
@@ -17,7 +17,8 @@ import { LicensePlateService } from './services/license-plate/license-plate.serv
   ],
   providers: [
     ImageCrudService,
-    LicensePlateService
+    LicensePlateService,
+    MonotonicallyIncreasingSeriesService
   ],
   exports: []
 })

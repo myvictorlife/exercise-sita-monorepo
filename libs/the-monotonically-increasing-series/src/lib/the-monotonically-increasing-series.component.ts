@@ -6,7 +6,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { findClosestIndex, selectIndexList } from '@sita/storage';
 
 @Component({
   selector: 'lib-the-monotonically-increasing-series',
@@ -26,4 +28,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class TheMonotonicallyIncreasingSeriesComponent {
 
+  indexList = this.store.selectSignal(selectIndexList);
+
+  form: FormGroup;
+
+  constructor(private store: Store, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      target: ['', [Validators.required, Validators.min(1)]]
+    });
+  }
+
+  calculateClosestIndex() {
+    if (this.form.valid) {
+      const target = parseInt(this.form.get('target')?.value);
+      this.store.dispatch(findClosestIndex({ target }));
+    }
+  }
 }

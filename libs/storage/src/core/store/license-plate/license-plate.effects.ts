@@ -14,7 +14,7 @@ export class LicensePlateEffects {
     this.actions$.pipe(
       ofType(licensePlateActions.calculateLicensePlate),
       mergeMap(({index}) =>
-        this.licensePlateService.calculate(index).pipe(
+        this.licensePlateService.getLicensePlate(index).pipe(
           map(licensePlate => licensePlateActions.calculateLicensePlateSuccess({ index, licensePlate })),
           catchError(() => of({ type: '[License Plate] Calculate Error' }))
         )

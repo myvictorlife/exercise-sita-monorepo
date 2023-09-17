@@ -17,6 +17,30 @@
                 </span>
             </div>
               
+
+            <form [formGroup]="form" (ngSubmit)="calculateClosestIndex()">
+
+                
+                <mat-form-field appearance="fill">
+                    <mat-label>Target</mat-label>
+                    <input matInput type="number" placeholder="Placeholder" formControlName="target">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+                  
+                <div class="div-button">
+                    <button type="submit" mat-raised-button color="primary">
+                        Calculate
+                    </button>
+                </div>
+              </form>
+
+
+              <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+                <mat-grid-tile *ngFor="let index of indexList()">
+                  <span> {{ index.closestIndex }}  </span>
+                </mat-grid-tile>
+              </mat-grid-list>
+
         </mat-card-content>
     </mat-card>      
 </div>
