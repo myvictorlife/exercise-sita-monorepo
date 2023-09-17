@@ -12,7 +12,7 @@ import * as actions from './monotonically-increasing-series.actions';
 export class MonotonicallyEffects {
   
   findClosestIndex$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(actions.findClosestIndex),
       mergeMap(({target}) =>
         this.service.findClosestIndex(target).pipe(
@@ -20,7 +20,7 @@ export class MonotonicallyEffects {
           catchError(() => of({ type: '[License Plate] Find Closest Index Error' }))
         )
       )
-    )
+    ) }
   );
 
   constructor(

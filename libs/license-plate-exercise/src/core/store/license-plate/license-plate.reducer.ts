@@ -11,11 +11,15 @@ export interface LicensePlate {
 }
 
 
-export interface LicensePlateState extends EntityState<LicensePlate> {}
+export interface LicensePlateState extends EntityState<LicensePlate> {
+  loading: boolean;
+}
 
 export const adapter = createEntityAdapter<LicensePlate>();
 
-export const initialLicensePlateState: LicensePlateState = adapter.getInitialState();
+export const initialLicensePlateState: LicensePlateState = adapter.getInitialState({
+  loading: false
+});
 
 export const licensePlateReducer = createReducer(
   initialLicensePlateState,

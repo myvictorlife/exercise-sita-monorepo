@@ -6,14 +6,32 @@
   "prefix": "lib",
   "tags": ["scope:js-concurrency-exercise"],
   "targets": {
-    "test": {
-      "executor": "@angular-devkit/build-angular:karma",
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "tsConfig": "libs/js-concurrency-exercise/tsconfig.spec.json",
-        "polyfills": [
-          "zone.js",
-          "zone.js/testing"
+        "lintFilePatterns": [
+          "libs/js-concurrency-exercise/**/*.ts",
+          "libs/js-concurrency-exercise/**/*.html"
         ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
+      "options": {
+        "jestConfig": "libs/js-concurrency-exercise/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
   }

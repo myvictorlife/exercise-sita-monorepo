@@ -1,10 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { findClosestIndex } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.actions';
+import { selectIndexList } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.selectors';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class TheMonotonicallyIncreasingSeriesService {
+@Injectable()
+export class MonotonicallyIncreasingSeriesService {
 
-  constructor() { }
+  indexList = this.store.selectSignal(selectIndexList);
+
+  constructor(private store: Store) { }
+
+  calculateClosestIndex(target: number): void {
+    this.store.dispatch(findClosestIndex({ target }));
+  }
+
+  resetState(): void {
+    // Put the logic here
+  }
 
 }

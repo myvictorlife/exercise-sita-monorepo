@@ -19,7 +19,7 @@ export class LicensePlateService {
         while (index > 0) {
             index--;
             // Calculate the remainder to find the corresponding letter in the alphabet
-            let remainder = index % 26;
+            const remainder = index % 26;
             // Add the corresponding letter to the alphabetical part of the plate
             alphaPart = this.ALPHABET.charAt(remainder) + alphaPart;
             // Divide the index by 26 to process the next alphabetical "digit"
@@ -36,12 +36,12 @@ export class LicensePlateService {
         }
 
         // Calculate numeric and alpha parts based on the index
-        let numericPart = index % 1000000;
-        let alphaPartIndex = Math.floor(index / 1000000);
-        let alphaPartString = this.getAlphaPartFromIndex(alphaPartIndex);
+        const numericPart = index % 1000000;
+        const alphaPartIndex = Math.floor(index / 1000000);
+        const alphaPartString = this.getAlphaPartFromIndex(alphaPartIndex);
 
         // Generate the license plate string by combining numeric and alpha parts
-        let plate = numericPart.toString().padStart(6 - alphaPartString.length, '0') + alphaPartString;
+        const plate = numericPart.toString().padStart(6 - alphaPartString.length, '0') + alphaPartString;
 
         // Return the license plate as an observable
         return of(plate);

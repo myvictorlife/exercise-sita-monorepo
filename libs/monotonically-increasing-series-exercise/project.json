@@ -4,30 +4,29 @@
   "projectType": "library",
   "sourceRoot": "libs/monotonically-increasing-series-exercise/src",
   "prefix": "lib",
-  "tags": ["scope:monotonically-increasing-series-exercise"],
+  "tags": ["libs:monotonically-increasing-series-exercise"],
   "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:ng-packagr",
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "project": "libs/monotonically-increasing-series-exercise/ng-package.json"
+        "jestConfig": "libs/monotonically-increasing-series-exercise/jest.config.ts",
+        "passWithNoTests": true
       },
       "configurations": {
-        "production": {
-          "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.lib.json"
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
-    "test": {
-      "executor": "@angular-devkit/build-angular:karma",
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "tsConfig": "libs/monotonically-increasing-series-exercise/tsconfig.spec.json",
-        "polyfills": [
-          "zone.js",
-          "zone.js/testing"
+        "lintFilePatterns": [
+          "libs/monotonically-increasing-series-exercise/**/*.ts",
+          "libs/monotonically-increasing-series-exercise/**/*.html"
         ]
       }
     }

@@ -1,16 +1,34 @@
-import { TestBed } from '@angular/core/testing';
 
-import { TheMonotonicallyIncreasingSeriesService } from './monotonically-increasing-series-exercise.service';
+import { createServiceFactory, SpectatorService } from '@ngneat/spectator';
+import { StoreModule } from '@ngrx/store';
 
-describe('TheMonotonicallyIncreasingSeriesService', () => {
-  let service: TheMonotonicallyIncreasingSeriesService;
+import { provideMockStore } from '@ngrx/store/testing';
+import { EffectsModule } from '@ngrx/effects';
+import { MonotonicallyIncreasingSeriesService } from './monotonically-increasing-series-exercise.service';
+
+describe('MonotonicallyIncreasingSeriesService', () => {
+
+
+  let spectator: SpectatorService<MonotonicallyIncreasingSeriesService>;
+
+  const initialState: any = {};
+
+  const createService = createServiceFactory({
+    service: MonotonicallyIncreasingSeriesService,
+    imports: [
+      StoreModule.forRoot({}),
+      EffectsModule.forRoot([]),
+    ],
+    providers: [
+      provideMockStore({ initialState }),
+    ],
+  });
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(TheMonotonicallyIncreasingSeriesService);
+    spectator = createService();
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(spectator.service).toBeTruthy();
   });
 });

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "scan:application": "npx nx reset && npx nx dep-graph --scan",
     "affected:build": "npx nx run-many --all --target=build --configuration=development",
     "affected:lint": "npx nx run-many --all --target=lint --configuration=development",
     "affected:test": "npx nx run-many --all --target=test --configuration=development"
@@ -19,6 +20,7 @@
     "@angular/platform-browser": "~16.2.0",
     "@angular/platform-browser-dynamic": "~16.2.0",
     "@angular/router": "~16.2.0",
+    "@ngneat/spectator": "^15.0.1",
     "@ngrx/component-store": "~16.0.0",
     "@ngrx/effects": "~16.0.0",
     "@ngrx/entity": "~16.0.0",
@@ -50,7 +52,7 @@
     "@nx/web": "16.8.1",
     "@nx/workspace": "16.8.1",
     "@schematics/angular": "~16.2.0",
-    "@types/jest": "^29.4.0",
+    "@types/jest": "^29.5.5",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",

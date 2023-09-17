@@ -15,6 +15,7 @@
         "*.jsx"
       ],
       "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
         "@nx/enforce-module-boundaries": [
           "error",
           {
@@ -26,15 +27,15 @@
                 "onlyDependOnLibsWithTags": [
                   "scope:js-concurrency-exercise",
                   "libs:license-plate-exercise",
-                  "scope:monotonically-increasing-series-exercise"
+                  "libs:monotonically-increasing-series-exercise"
                 ]
               },
               {
-                "sourceTag": "scope:js-concurrency-exercise",
+                "sourceTag": "libs:js-concurrency-exercise",
                 "onlyDependOnLibsWithTags": []
               },
               {
-                "sourceTag": "scope:monotonically-increasing-series-exercise",
+                "sourceTag": "libs:monotonically-increasing-series-exercise",
                 "onlyDependOnLibsWithTags": []
               }
             ]

@@ -1,8 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { fetchImages, resetImagesStore } from '../core/store/js-concurrency/js-concurrency.actions';
-import { selectAllImages } from '../core/store/js-concurrency/js-concurrency.selectors';
+import { resetImagesStore } from '../core/store/js-concurrency/js-concurrency.actions';
 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -12,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CoreModule } from '../core/core.module';
+import { JsConcurrencyExerciseService } from './js-concurrency-exercise.service';
 
 @Component({
   selector: 'lib-js-concurrency-exercise',
@@ -24,7 +24,10 @@ import { CoreModule } from '../core/core.module';
     MatInputModule,
     MatGridListModule,
     NgFor,
-    CoreModule
+    CoreModule,
+  ],
+  providers: [
+    JsConcurrencyExerciseService
   ],
   templateUrl: './js-concurrency-exercise.component.html',
   styleUrls: ['./js-concurrency-exercise.component.scss']
@@ -33,13 +36,14 @@ export class JsConcurrencyExerciseComponent {
 
   form: FormGroup;
 
-  images = this.store.selectSignal(selectAllImages);
+  images = this.service.images;
 
   MAX_CONCURRENCY = signal(3);
 
   private urls = ['1', '', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-  constructor(private store: Store, private fb: FormBuilder) {
+  constructor(private store: Store, private fb: FormBuilder,
+    private service: JsConcurrencyExerciseService) {
     this.form = this.fb.group({
       maxConcurrency: ['', [Validators.required, Validators.min(1)]]
     });
@@ -48,10 +52,8 @@ export class JsConcurrencyExerciseComponent {
   loadImages() {
     if (this.form.valid) {
       const maxConcurrency = parseInt(this.form.get('maxConcurrency')?.value);
-      this.store.dispatch(resetImagesStore());
-      this.store.dispatch(fetchImages({
-        urls: this.urls, maxConcurrency
-      }));
+      this.service.resetState();
+      this.service.loadImages(this.urls, maxConcurrency);
     }
   }
 

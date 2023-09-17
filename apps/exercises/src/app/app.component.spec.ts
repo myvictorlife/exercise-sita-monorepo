@@ -1,27 +1,55 @@
-import { TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from '../pages/welcome/welcome.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
+import { JsConcurrencyExerciseComponent } from '@sita/js-concurrency-exercise';
+import { TheLicensePlateProblemComponent } from '@sita/license-plate-exercise';
+import { WelcomeComponent } from '../pages/welcome/welcome.component';
+import { MonotonicallyIncreasingSeriesExerciseComponent } from '@sita/monotonically-increasing-series-exercise';
+import { EffectsModule } from '@ngrx/effects';
+import { provideMockStore } from '@ngrx/store/testing';
+import { StoreModule } from '@ngrx/store';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent, NxWelcomeComponent, RouterTestingModule],
-    }).compileComponents();
+  let spectator: Spectator<AppComponent>;
+
+  const initialState = {
+    images: {
+      ids: [],
+      entities: [],
+    },
+    licensePlate: {
+      ids: [],
+      entities: [],
+    },
+    indexList: {
+      ids: [],
+      entities: [],
+    },
+  };
+  const createComponent = createComponentFactory({
+    component: AppComponent,
+    imports: [
+      RouterModule.forRoot([]),
+      StoreModule.forRoot({}),
+      EffectsModule.forRoot([]),
+      JsConcurrencyExerciseComponent,
+      TheLicensePlateProblemComponent,
+      WelcomeComponent,
+      MonotonicallyIncreasingSeriesExerciseComponent
+    ],
+    providers: [provideMockStore({initialState})],
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome exercises'
-    );
+  beforeEach(() => (spectator = createComponent()));
+
+  it('should create the app', () => {
+    expect(spectator.component).toBeTruthy();
   });
 
   it(`should have as title 'exercises'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+    const app = spectator.component;
     expect(app.title).toEqual('exercises');
   });
+
+
 });

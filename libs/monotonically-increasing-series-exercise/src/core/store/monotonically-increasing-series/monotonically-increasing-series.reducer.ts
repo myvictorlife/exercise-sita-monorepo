@@ -12,11 +12,15 @@ export interface MonotonicallyIncreasing {
 }
 
 
-export interface MonotonicallyIncreasingState extends EntityState<MonotonicallyIncreasing> {}
+export interface MonotonicallyIncreasingState extends EntityState<MonotonicallyIncreasing> {
+  loading: boolean;
+}
 
 export const monotonicallyAdapter = createEntityAdapter<MonotonicallyIncreasing>();
 
-export const initialMonotonicallyIncreasingState: MonotonicallyIncreasingState = monotonicallyAdapter.getInitialState();
+export const initialMonotonicallyIncreasingState: MonotonicallyIncreasingState = monotonicallyAdapter.getInitialState({
+  loading: false
+});
 
 export const monotonicallyReducer = createReducer(
   initialMonotonicallyIncreasingState,

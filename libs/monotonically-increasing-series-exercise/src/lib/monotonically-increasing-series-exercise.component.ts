@@ -7,11 +7,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
 
-import { findClosestIndex } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.actions';
-import { selectIndexList } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.selectors';
 import { CoreModule } from '../core/core.module';
+import { MonotonicallyIncreasingSeriesService } from './monotonically-increasing-series-exercise.service';
 
 @Component({
   selector: 'lib-monotonically-increasing-series-exercise',
@@ -27,26 +25,31 @@ import { CoreModule } from '../core/core.module';
     NgFor,
     CoreModule
   ],
+  providers: [
+    MonotonicallyIncreasingSeriesService
+  ],
   styleUrls: ['./monotonically-increasing-series-exercise.component.scss']
 })
 export class MonotonicallyIncreasingSeriesExerciseComponent {
 
-  indexList = this.store.selectSignal(selectIndexList);
+  indexList = this.service.indexList;
 
   form: FormGroup;
 
-  constructor(private store: Store, private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: MonotonicallyIncreasingSeriesService) {
     this.form = this.fb.group({
       target: ['', [Validators.required, Validators.min(1)]]
     });
   }
 
-  calculateClosestIndex() {
+  calculateClosestIndex(): void {
     if (this.form.valid) {
       const target = parseInt(this.form.get('target')?.value);
-      this.store.dispatch(findClosestIndex({ target }));
+      this.service.calculateClosestIndex(target);
     }
   }
 
-  resetState() {} 
+  resetState(): void {
+    this.service.resetState();
+  }
 }

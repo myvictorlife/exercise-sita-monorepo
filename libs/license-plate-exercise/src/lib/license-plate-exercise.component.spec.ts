@@ -1,21 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { TheLicensePlateProblemComponent } from './license-plate-exercise.component';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('TheLicensePlateProblemComponent', () => {
-  let component: TheLicensePlateProblemComponent;
-  let fixture: ComponentFixture<TheLicensePlateProblemComponent>;
+  let spectator: Spectator<TheLicensePlateProblemComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [TheLicensePlateProblemComponent]
-    });
-    fixture = TestBed.createComponent(TheLicensePlateProblemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  const initialState = {
+    licensePlate: {
+      ids: [],
+      entities: [],
+    }
+  };
+
+  const createComponent = createComponentFactory({
+    component: TheLicensePlateProblemComponent,
+    imports: [
+      StoreModule.forRoot({}),
+      EffectsModule.forRoot([]),
+    ],
+    providers: [
+      provideMockStore({ initialState }),
+    ]
   });
 
+  beforeEach(() => (spectator = createComponent()));
+
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
   });
 });

@@ -1,4 +1,3 @@
-// license-plate.effects.ts
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
@@ -11,7 +10,7 @@ import * as licensePlateActions from './license-plate.actions';
 export class LicensePlateEffects {
   
   calculateLicensePlate$ = createEffect(() =>
-    this.actions$.pipe(
+    { return this.actions$.pipe(
       ofType(licensePlateActions.calculateLicensePlate),
       mergeMap(({index}) =>
         this.licensePlateService.getLicensePlate(index).pipe(
@@ -19,7 +18,7 @@ export class LicensePlateEffects {
           catchError(() => of({ type: '[License Plate] Calculate Error' }))
         )
       )
-    )
+    ) }
   );
 
   constructor(
