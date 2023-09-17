@@ -12,7 +12,7 @@ import { Store } from '@ngrx/store';
 import { calculateLicensePlate, selectAllLicensePlates } from '@sita/storage';
 
 @Component({
-  selector: 'lib-the-license-plate-problem',
+  selector: 'lib-license-plate-exercise',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,8 +23,8 @@ import { calculateLicensePlate, selectAllLicensePlates } from '@sita/storage';
     MatInputModule,
     MatGridListModule
   ],
-  templateUrl: './the-license-plate-problem.component.html',
-  styleUrls: ['./the-license-plate-problem.component.scss']
+  templateUrl: './license-plate-exercise.component.html',
+  styleUrls: ['./license-plate-exercise.component.scss']
 })
 export class TheLicensePlateProblemComponent {
 

@@ -1,22 +1,22 @@
 {
-  "name": "the-license-plate-problem",
+  "name": "license-plate-exercise",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/the-license-plate-problem/src",
+  "sourceRoot": "libs/license-plate-exercise/src",
   "prefix": "lib",
-  "tags": ["libs:the-license-plate-problem"],
+  "tags": ["libs:license-plate-exercise"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:ng-packagr",
       "options": {
-        "project": "libs/the-license-plate-problem/ng-package.json"
+        "project": "libs/license-plate-exercise/ng-package.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/the-license-plate-problem/tsconfig.lib.prod.json"
+          "tsConfig": "libs/license-plate-exercise/tsconfig.lib.prod.json"
         },
         "development": {
-          "tsConfig": "libs/the-license-plate-problem/tsconfig.lib.json"
+          "tsConfig": "libs/license-plate-exercise/tsconfig.lib.json"
         }
       },
       "defaultConfiguration": "production"
@@ -24,7 +24,7 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "tsConfig": "libs/the-license-plate-problem/tsconfig.spec.json",
+        "tsConfig": "libs/license-plate-exercise/tsconfig.spec.json",
         "polyfills": [
           "zone.js",
           "zone.js/testing"

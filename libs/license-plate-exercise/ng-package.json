@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/the-license-plate-problem",
+  "dest": "../../dist/license-plate-exercise",
   "lib": {
     "entryFile": "src/public-api.ts"
   }

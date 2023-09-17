@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { JsConcurrencyExerciseComponent } from '@sita/js-concurrency-exercise';
-import { TheLicensePlateProblemComponent } from '@sita/the-license-plate-problem';
+import { TheLicensePlateProblemComponent } from '@sita/license-plate-exercise';
 import { WelcomeComponent } from '../pages/welcome/welcome.component';
 import { TheMonotonicallyIncreasingSeriesComponent } from '@sita/the-monotonically-increasing-series';
 

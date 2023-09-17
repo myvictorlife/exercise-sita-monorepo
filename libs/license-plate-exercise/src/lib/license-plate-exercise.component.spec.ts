@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TheLicensePlateProblemComponent } from './the-license-plate-problem.component';
+import { TheLicensePlateProblemComponent } from './license-plate-exercise.component';
 
 describe('TheLicensePlateProblemComponent', () => {
   let component: TheLicensePlateProblemComponent;

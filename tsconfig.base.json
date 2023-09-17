@@ -18,8 +18,8 @@
       "@sita/js-concurrency-exercise": [
         "libs/js-concurrency-exercise/src/public-api.ts"
       ],
-      "@sita/the-license-plate-problem": [
-        "libs/the-license-plate-problem/src/public-api.ts"
+      "@sita/license-plate-exercise": [
+        "libs/license-plate-exercise/src/public-api.ts"
       ],
       "@sita/the-monotonically-increasing-series": [
         "libs/the-monotonically-increasing-series/src/public-api.ts"

@@ -1,5 +1,5 @@
 {
-  "name": "the-license-plate-problem",
+  "name": "license-plate-exercise",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^16.2.0",
