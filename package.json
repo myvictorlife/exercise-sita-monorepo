@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve exercises",
     "scan:application": "npx nx reset && npx nx dep-graph --scan",
+    "graph:application": "npx nx graph",
     "affected:build": "npx nx run-many --all --target=build --configuration=development",
     "affected:lint": "npx nx run-many --all --target=lint --configuration=development",
     "affected:test": "npx nx run-many --all --target=test --configuration=development",

@@ -1,0 +1,49 @@
+name: Install, Build, Lint and Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [18]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Cache Nx
+        uses: actions/cache@v2
+        with:
+          path: node_modules/.cache/nx
+          key: ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Configure Nx SHA's
+        uses: nrwl/nx-set-shas@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Affected
+        run: npm run affected:build
+
+      - name: Run Lint on Affected
+        run: npm run affected:lint
+
+      - name: Run Tests on Affected
+        run: npm run affected:test
