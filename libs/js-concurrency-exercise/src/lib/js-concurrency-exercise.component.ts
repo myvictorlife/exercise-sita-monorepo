@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { selectAllImages, fetchImages, resetImagesStore } from '@sita/storage';
+
 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -10,6 +10,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { CoreModule } from '../core/core.module';
+import { selectAllImages } from '../core/store/js-concurrency/js-concurrency.selectors';
+import { fetchImages, resetImagesStore } from '../core/store/js-concurrency/js-concurrency.actions';
 
 @Component({
   selector: 'lib-js-concurrency-exercise',
@@ -21,7 +24,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    NgFor
+    NgFor,
+    CoreModule
   ],
   templateUrl: './js-concurrency-exercise.component.html',
   styleUrls: ['./js-concurrency-exercise.component.scss']
