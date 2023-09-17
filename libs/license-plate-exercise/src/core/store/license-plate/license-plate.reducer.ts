@@ -1,7 +1,7 @@
 // license-plate.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
-import { calculateLicensePlateSuccess } from './license-plate.actions';
+import { calculateLicensePlateSuccess, resetState } from './license-plate.actions';
 
 
 // license-plate.model.ts
@@ -21,5 +21,8 @@ export const licensePlateReducer = createReducer(
   initialLicensePlateState,
   on(calculateLicensePlateSuccess, (state, { index, licensePlate }) => {
     return adapter.addOne({ id: index, plateNumber: licensePlate }, state);
+  }),
+  on(resetState, (state) => {
+    return adapter.removeAll(state );
   })
 );

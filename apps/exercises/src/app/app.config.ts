@@ -8,8 +8,6 @@ import { appRoutes } from './app.routes';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { CoreModule } from '@sita/storage';
-
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { metaReducers, reducers } from '../core/+state/index';
@@ -21,8 +19,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom([
       StoreModule.forRoot(reducers, { metaReducers }),
       StoreDevtoolsModule.instrument(),
-      EffectsModule.forRoot([]),
-      CoreModule
+      EffectsModule.forRoot([])
     ]),
     provideRouter(
       appRoutes,

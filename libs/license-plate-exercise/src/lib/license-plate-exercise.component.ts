@@ -12,7 +12,7 @@ import { Store } from '@ngrx/store';
 
 import { CoreModule } from '../core/core.module';
 import { selectAllLicensePlates } from '../core/store/license-plate/license-plate.selectors';
-import { calculateLicensePlate } from '../core/store/license-plate/license-plate.actions';
+import { calculateLicensePlate, resetState } from '../core/store/license-plate/license-plate.actions';
 
 @Component({
   selector: 'lib-license-plate-exercise',
@@ -47,5 +47,9 @@ export class TheLicensePlateProblemComponent {
       const index = parseInt(this.form.get('index')?.value);
       this.store.dispatch(calculateLicensePlate({ index }));
     }
+  }
+
+  resetState() {
+    this.store.dispatch(resetState());
   }
 }

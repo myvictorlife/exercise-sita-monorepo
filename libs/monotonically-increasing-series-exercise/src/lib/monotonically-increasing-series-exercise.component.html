@@ -10,6 +10,7 @@
           
         </mat-card-header>
         <mat-card-content>
+          <br/>
             <div class="question-title">
                 <span class="title">
                     Given some function F(index) which returns a monotonically increasing sequence of integers, the following holds true: F(x) >= F(y) for all x > y.
@@ -18,7 +19,7 @@
             </div>
               
 
-            <form [formGroup]="form" (ngSubmit)="calculateClosestIndex()">
+            <form [formGroup]="form" (ngSubmit)="calculateClosestIndex()" class="form-container">
 
                 
                 <mat-form-field appearance="fill">
@@ -31,6 +32,9 @@
                     <button type="submit" mat-raised-button color="primary">
                         Calculate
                     </button>
+                    <button type="button" class="reset-button" (click)="resetState()" mat-raised-button color="warning">
+                        Reset
+                  </button>
                 </div>
               </form>
 

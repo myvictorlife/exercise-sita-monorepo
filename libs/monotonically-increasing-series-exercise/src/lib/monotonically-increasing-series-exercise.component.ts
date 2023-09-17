@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { CommonModule, NgFor } from '@angular/common';
+import { NgFor } from '@angular/common';
 
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { findClosestIndex, selectIndexList } from '@sita/storage';
+
+import { findClosestIndex } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.actions';
+import { selectIndexList } from '../core/store/monotonically-increasing-series/monotonically-increasing-series.selectors';
+import { CoreModule } from '../core/core.module';
 
 @Component({
   selector: 'lib-monotonically-increasing-series-exercise',
@@ -21,10 +24,10 @@ import { findClosestIndex, selectIndexList } from '@sita/storage';
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    NgFor
+    NgFor,
+    CoreModule
   ],
-  styles: [    
-  ]
+  styleUrls: ['./monotonically-increasing-series-exercise.component.scss']
 })
 export class MonotonicallyIncreasingSeriesExerciseComponent {
 
@@ -44,4 +47,6 @@ export class MonotonicallyIncreasingSeriesExerciseComponent {
       this.store.dispatch(findClosestIndex({ target }));
     }
   }
+
+  resetState() {} 
 }

@@ -7,7 +7,6 @@
   <mat-card>
       <mat-card-header>
         <mat-card-title>The License Plate Problem</mat-card-title>
-        
       </mat-card-header>
       <mat-card-content>
         <br/>
@@ -29,10 +28,9 @@
             </span>            
           </div>
             
-          <br/>
-          <form [formGroup]="form" (ngSubmit)="calculate()">
+          
+          <form [formGroup]="form" (ngSubmit)="calculate()" class="form-container">
 
-                
             <mat-form-field appearance="fill">
                 <mat-label>Index</mat-label>
                 <input matInput type="number" placeholder="Placeholder" formControlName="index">
@@ -43,13 +41,21 @@
             <button class="button-fetch-image" type="submit" mat-raised-button color="primary">
                 Calculate License Plate
             </button>
+
+            <button type="button" class="reset-button" (click)="resetState()" mat-raised-button color="warning">
+                  Reset
+            </button>
           </form>
 
-          <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
-            <mat-grid-tile *ngFor="let plate of selectAllLicensePlates()">
-              Plate Number: {{ plate.plateNumber }}
-            </mat-grid-tile>
-          </mat-grid-list>
+          <div *ngIf="selectAllLicensePlates()?.length">
+            <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10px">
+              <mat-grid-tile *ngFor="let plate of selectAllLicensePlates()" class="grid-tile">
+                <div class="plate-card">
+                  {{ plate.plateNumber }}
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>          
 
       </mat-card-content>
   </mat-card>      

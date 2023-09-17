@@ -10,3 +10,7 @@ export const calculateLicensePlateSuccess = createAction(
   '[License Plate] Calculate Success',
   props<{  index: number, licensePlate: string }>()
 );
+
+export const resetState = createAction(
+  '[License Plate] Reset State'
+);

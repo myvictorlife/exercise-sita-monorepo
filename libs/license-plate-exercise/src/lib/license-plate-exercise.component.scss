@@ -1,3 +1,39 @@
 .container {
     padding: 10px
 }
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+.mat-form-field, .div-button {
+    margin: 0;
+}
+
+.reset-button {
+    margin-left: 10px;
+}
+
+.plate-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #000;
+    border: 2px solid #fff;
+    margin: 5px; /* Adicionado uma margem de 5px */
+  }
+  
+  

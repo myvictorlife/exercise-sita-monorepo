@@ -23,9 +23,6 @@
       ],
       "@sita/monotonically-increasing-series-exercise": [
         "libs/monotonically-increasing-series-exercise/src/public-api.ts"
-      ],
-      "@sita/storage": [
-        "libs/storage/src/public-api.ts"
       ]
     }
   },
