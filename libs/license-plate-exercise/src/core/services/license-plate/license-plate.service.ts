@@ -1,4 +1,3 @@
-// license-plate.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -48,11 +47,5 @@ export class LicensePlateService {
         }
         return alphaPart;
     }
-    
-    
-    
-    
-    
-
 
 }

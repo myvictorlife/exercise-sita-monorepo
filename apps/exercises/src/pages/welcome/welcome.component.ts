@@ -19,8 +19,12 @@ export class WelcomeComponent {
 
   constructor(private router: Router) { }
 
-  redirectToJsConcurrencyExercisePage() {
+  redirectToJsConcurrencyExercisePage(): void {
     this.router.navigate(['/js-concurrency-exercise']);
+  }
+
+  redirectToGithub(): void {
+    window.open('https://github.com/myvictorlife/exercise-sita-monorepo', '_blank');
   }
 
 }
